@@ -11,6 +11,7 @@ RUN docker-php-ext-install pdo_mysql zip \
     && docker-php-ext-install gd \
     && docker-php-ext-install pcntl \
     && docker-php-ext-enable redis \
+    && docker-php-ext-enable intl \
     && curl -sS https://getcomposer.org/installer \
                  | php -- --install-dir=/usr/local/bin --filename=composer
 
