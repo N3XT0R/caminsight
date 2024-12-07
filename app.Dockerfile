@@ -10,6 +10,7 @@ RUN docker-php-ext-install pdo_mysql zip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
     && docker-php-ext-install pcntl \
+    && docker-php-ext-install intl \
     && docker-php-ext-enable redis \
     && docker-php-ext-enable intl \
     && curl -sS https://getcomposer.org/installer \
