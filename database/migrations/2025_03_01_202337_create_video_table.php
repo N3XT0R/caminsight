@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('type')->nullable()->comment('e.g. video-format or rar/zip');
             $table->string('file_path');
             $table->integer('file_size')->nullable();
-            $table->enum('status', ['WAITING', 'IN_PROGRESS', 'FINISHED']);
+            $table->enum('status', ['WAITING', 'IN_PROGRESS', 'FINISHED'])->default('WAITING');
             $table->text('comment')->nullable();
             $table->timestamps();
         });
