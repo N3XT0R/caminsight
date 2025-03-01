@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('file_path');
             $table->integer('file_size')->nullable();
             $table->enum('status', ['WAITING', 'IN_PROGRESS', 'FINISHED'])->default('WAITING');
+            $table->string('hash_sum')->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();
         });
