@@ -19,6 +19,10 @@ class VideosResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+
+
+
     public static function form(Form $form): Form
     {
         return $form
@@ -31,7 +35,11 @@ class VideosResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('Datei'),
+                Tables\Columns\TextColumn::make('Typ'),
+                Tables\Columns\TextColumn::make('Status'),
+                Tables\Columns\TextColumn::make('Hochgeladen am'),
+                Tables\Columns\TextColumn::make('Bearbeitet am'),
             ])
             ->filters([
                 //

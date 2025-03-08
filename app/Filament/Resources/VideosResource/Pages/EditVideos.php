@@ -16,4 +16,5 @@ class EditVideos extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
 }

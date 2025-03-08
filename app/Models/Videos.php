@@ -15,6 +15,17 @@ class Videos extends Model
 
     public const STATUS_FINISHED = 'FINISHED';
 
+    protected $fillable = [
+        'user_id',
+        'file_name',
+        'type',
+        'file_path',
+        'file_size',
+        'status',
+        'hash_sum',
+        'comment',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

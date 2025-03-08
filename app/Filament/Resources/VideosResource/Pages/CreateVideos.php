@@ -9,4 +9,12 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateVideos extends CreateRecord
 {
     protected static string $resource = VideosResource::class;
+
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['user_id'] = auth()->id();
+
+        return $data;
+    }
 }
