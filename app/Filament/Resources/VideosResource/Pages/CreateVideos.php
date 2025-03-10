@@ -5,9 +5,12 @@ namespace App\Filament\Resources\VideosResource\Pages;
 use App\Filament\Resources\VideosResource;
 use Filament\Actions;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class CreateVideos extends CreateRecord
 {
@@ -34,15 +37,20 @@ class CreateVideos extends CreateRecord
                 ])
                 ->disk('videos')
                 ->directory(auth()->id())
-                ->visibility('private')
+                ->visibility('private'),
+            Textarea::make('comment')->label('Kommentar'),
         ]);
     }
 
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
+        $filePath = $data['file_path'];
+        $disk = Storage::disk('videos');
         $data['user_id'] = auth()->id();
-        dd($data);
+        $data['file_size'] = $disk->size($filePath);
+        $data['hash_sum'] = md5($disk->get($filePath));
+        $data['type'] = Str::upper(Str::afterLast('.', $filePath));
 
         return $data;
     }
