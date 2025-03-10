@@ -24,14 +24,14 @@ class CreateVideos extends CreateRecord
     public function form(Form $form): Form
     {
         return $form->schema([
-            FileUpload::make('attachment')
+            FileUpload::make('file_path')
                 ->label('Video-File')
                 ->required()
+                ->storeFileNamesIn('file_name')
                 ->acceptedFileTypes(['video/mp4'])
                 ->mimeTypeMap([
                     'mp4' => 'video/mp4',
                 ])
-                ->preserveFilenames()
                 ->disk('videos')
                 ->directory(auth()->id())
                 ->visibility('private')
