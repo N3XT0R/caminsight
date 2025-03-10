@@ -43,7 +43,7 @@ class VideosResource extends Resource
                     ->label('Status'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')->dateTime(),
-            ])
+            ])->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
