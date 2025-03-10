@@ -31,6 +31,7 @@ class CreateVideos extends CreateRecord
                 ->mimeTypeMap([
                     'mp4' => 'video/mp4',
                 ])
+                ->preserveFilenames()
                 ->disk('videos')
                 ->directory(auth()->id())
                 ->visibility('private')
@@ -41,6 +42,7 @@ class CreateVideos extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         $data['user_id'] = auth()->id();
+        dd($data);
 
         return $data;
     }
