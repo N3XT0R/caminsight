@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Filament\Resources\VideosResource;
+use App\Models\Videos;
 use Illuminate\Console\Command;
 
 class RecognizeVideosCommand extends Command
@@ -25,7 +27,9 @@ class RecognizeVideosCommand extends Command
      */
     public function handle(): int
     {
-        //
+        $videos = VideosResource::getEloquentQuery()
+            ->where('status', Videos::STATUS_WAITING)
+            ->get();
 
         return self::SUCCESS;
     }
