@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,11 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $locale = App::currentLocale();
-        if (!in_array($locale, ['de', 'en'])) {
-            $locale = 'en';
-        }
-
-        App::setLocale($locale);
+        LanguageSwitch::configureUsing(static function (LanguageSwitch $switch) {
+            $switch
+                ->locales(['de', 'en']); // also accepts a closure
+        });
     }
 }
