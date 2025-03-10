@@ -50,7 +50,7 @@ class CreateVideos extends CreateRecord
         $data['user_id'] = auth()->id();
         $data['file_size'] = $disk->size($filePath);
         $data['hash_sum'] = md5($disk->get($filePath));
-        $data['type'] = Str::upper(Str::afterLast($filePath, '.'));
+        $data['type'] = $disk->mimeType($filePath);
 
         return $data;
     }
