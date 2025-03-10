@@ -37,7 +37,7 @@ class CreateVideos extends CreateRecord
                 ])
                 ->disk('videos')
                 ->directory(auth()->id())
-                ->visibility('private'),
+                ->visibility('public'),
             Textarea::make('comment')->label('Kommentar'),
         ]);
     }
