@@ -32,8 +32,12 @@ class VideosResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('file_name')->label('Datei'),
-                Tables\Columns\TextColumn::make('type'),
+                Tables\Columns\TextColumn::make('file_name')
+                    ->translateLabel()
+                    ->label('forms.video.video_file'),
+                Tables\Columns\TextColumn::make('type')
+                    ->translateLabel()
+                    ->label('forms.video.type'),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')->dateTime(),
