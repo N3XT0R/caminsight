@@ -3,14 +3,12 @@
 namespace App\Filament\Resources\VideosResource\Pages;
 
 use App\Filament\Resources\VideosResource;
-use Filament\Actions;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class CreateVideos extends CreateRecord
 {
@@ -20,8 +18,8 @@ class CreateVideos extends CreateRecord
     {
         return Notification::make()
             ->success()
-            ->title('User registered')
-            ->body('The user has been created successfully.');
+            ->title(__('forms.video.video_file.messages.uploaded.title'))
+            ->body(__('forms.video.video_file.messages.uploaded.body'));
     }
 
     public function form(Form $form): Form
@@ -32,6 +30,9 @@ class CreateVideos extends CreateRecord
                 ->required()
                 ->storeFileNamesIn('file_name')
                 ->acceptedFileTypes(['video/mp4'])
+                ->multiple(false)
+                ->panelLayout('integrated')
+                ->moveFiles()
                 ->mimeTypeMap([
                     'mp4' => 'video/mp4',
                 ])
