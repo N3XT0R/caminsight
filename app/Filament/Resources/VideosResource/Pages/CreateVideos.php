@@ -28,7 +28,7 @@ class CreateVideos extends CreateRecord
     {
         return $form->schema([
             FileUpload::make('file_path')
-                ->label('Video-File')
+                ->label(__('forms.video.video_file'))
                 ->required()
                 ->storeFileNamesIn('file_name')
                 ->acceptedFileTypes(['video/mp4'])
@@ -38,7 +38,7 @@ class CreateVideos extends CreateRecord
                 ->disk('videos')
                 ->directory(auth()->id())
                 ->visibility('public'),
-            Textarea::make('comment')->label('Kommentar'),
+            Textarea::make('comment')->label(__('forms.video.comment')),
         ]);
     }
 
