@@ -38,7 +38,9 @@ class VideosResource extends Resource
                 Tables\Columns\TextColumn::make('type')
                     ->translateLabel()
                     ->label('forms.video.type'),
-                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('status')
+                    ->formatStateUsing(fn(string $state): string => __('forms.video.status.'.$state))
+                    ->label('Status'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')->dateTime(),
             ])
