@@ -32,6 +32,9 @@ class RecognizeVideosCommand extends Command
             ->where('status', Videos::STATUS_WAITING)
             ->get();
 
+        foreach ($videos as $video) {
+        }
+
         return self::SUCCESS;
     }
 }
