@@ -49,6 +49,7 @@ class CreateVideos extends CreateRecord
         $getID3 = new \getID3();
         $filePath = $data['file_path'];
         $fileInfo = $getID3->analyze($filePath);
+        $getID3->CopyTagsToComments($fileInfo);
         $disk = Storage::disk('videos');
         $data['user_id'] = auth()->id();
         $data['file_size'] = $disk->size($filePath);
