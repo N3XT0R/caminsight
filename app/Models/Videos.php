@@ -24,6 +24,7 @@ class Videos extends Model
         'status',
         'hash_sum',
         'comment',
+        'playtime_seconds',
     ];
 
     public function user(): BelongsTo
@@ -31,5 +32,5 @@ class Videos extends Model
         return $this->belongsTo(User::class);
     }
 
-    
+
 }
