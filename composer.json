@@ -10,6 +10,7 @@
         "bezhansalleh/filament-language-switch": "^3.1",
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
+        "google/cloud-videointelligence": "^2.0",
         "laravel/framework": "^11.31"
     },
     "require-dev": {
