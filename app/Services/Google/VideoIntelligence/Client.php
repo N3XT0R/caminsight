@@ -8,8 +8,9 @@ use Google\Cloud\VideoIntelligence\V1\AnnotateVideoRequest;
 use Google\Cloud\VideoIntelligence\V1\AnnotateVideoResponse;
 use Google\Cloud\VideoIntelligence\V1\Client\VideoIntelligenceServiceClient;
 use Google\Rpc\Status;
+use App\Services\Google\VideoIntelligence\Contracts\ClientContract;
 
-class Client
+class Client implements ClientContract
 {
     protected VideoIntelligenceServiceClient $client;
 
