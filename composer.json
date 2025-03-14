@@ -11,6 +11,7 @@
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
         "google/cloud-videointelligence": "^2.0",
+        "james-heinrich/getid3": "^1.9",
         "laravel/framework": "^11.31"
     },
     "require-dev": {

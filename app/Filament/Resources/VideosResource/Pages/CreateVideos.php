@@ -46,12 +46,15 @@ class CreateVideos extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
+        $getID3 = new \getID3();
         $filePath = $data['file_path'];
+        $fileInfo = $getID3->analyze($filePath);
         $disk = Storage::disk('videos');
         $data['user_id'] = auth()->id();
         $data['file_size'] = $disk->size($filePath);
         $data['hash_sum'] = md5($disk->get($filePath));
         $data['type'] = $disk->mimeType($filePath);
+        $data['play_time'] = $fileInfo['playtime_seconds'];
 
         return $data;
     }
