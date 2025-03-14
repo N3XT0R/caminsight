@@ -6,7 +6,6 @@ use App\Services\Google\VideoIntelligence\Client;
 use App\Services\Google\VideoIntelligence\Contracts\ClientContract;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 use Google\Cloud\VideoIntelligence\V1\Client\VideoIntelligenceServiceClient;
 
