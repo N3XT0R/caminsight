@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Filament\Resources\VideosResource;
 use App\Models\Videos;
+use App\Services\Google\VideoIntelligence\Contracts\ClientContract;
 use Illuminate\Console\Command;
 
 class RecognizeVideosCommand extends Command
@@ -25,7 +26,7 @@ class RecognizeVideosCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): int
+    public function handle(ClientContract $client): int
     {
         $videos = VideosResource::getEloquentQuery()
             ->where('status', Videos::STATUS_WAITING)
