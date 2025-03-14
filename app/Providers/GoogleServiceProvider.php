@@ -14,7 +14,7 @@ class GoogleServiceProvider extends ServiceProvider implements DeferrableProvide
     public function register(): void
     {
         $this->app->bind(ClientContract::class, static function (Application $app) {
-            return new Client(new VideoIntelligenceServiceClient(['apiKey' => $app['config']->get('services.google_cloud.GOOGLE_API_KEY')]));
+            return new Client(new VideoIntelligenceServiceClient(['apiKey' => $app['config']->get('services.google_cloud.key')]));
         });
     }
 }

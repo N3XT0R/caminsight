@@ -35,8 +35,8 @@ return [
         ],
     ],
     'google_cloud' => [
-        'API_KEY' => env('GOOGLE_ID'),
-        'ID' => env('GOOGLE_ID'),
-        'GOOGLE_CLOUD_PROJECT' => env('GOOGLE_PROJECT_ID'),
+        'key' => env('GOOGLE_ID'),
+        'id' => env('GOOGLE_ID'),
+        'project_id' => env('GOOGLE_PROJECT_ID'),
     ],
 ];
