@@ -11,8 +11,8 @@
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
         "google/cloud-videointelligence": "^2.0",
-        "james-heinrich/getid3": "^1.9",
-        "laravel/framework": "^11.31"
+        "laravel/framework": "^11.31",
+        "owen-oj/laravel-getid3": "^2.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

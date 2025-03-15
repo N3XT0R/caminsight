@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->integer('file_size')->nullable();
             $table->enum('status', ['WAITING', 'IN_PROGRESS', 'FINISHED'])->default('WAITING');
             $table->string('hash_sum')->nullable();
-            $table->unsignedBigInteger('play_time')->nullable();
+            $table->json('meta_data')->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();
         });

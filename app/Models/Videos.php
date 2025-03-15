@@ -24,7 +24,11 @@ class Videos extends Model
         'status',
         'hash_sum',
         'comment',
-        'playtime_seconds',
+        'meta_data',
+    ];
+
+    protected $casts = [
+        'meta_data' => 'array',
     ];
 
     public function user(): BelongsTo

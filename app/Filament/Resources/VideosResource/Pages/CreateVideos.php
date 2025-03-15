@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Storage;
+use Owenoj\LaravelGetId3\GetId3;
 
 class CreateVideos extends CreateRecord
 {
@@ -46,16 +47,16 @@ class CreateVideos extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $getID3 = new \getID3();
+        $diskName = 'videos';
         $filePath = $data['file_path'];
-        $fileInfo = $getID3->analyze($filePath);
-        $getID3->CopyTagsToComments($fileInfo);
-        $disk = Storage::disk('videos');
+        $disk = Storage::disk($diskName);
+        $getID3 = GetId3::fromDiskAndPath($diskName, $filePath);
+        $fileInfo = $getID3->extractInfo();
         $data['user_id'] = auth()->id();
         $data['file_size'] = $disk->size($filePath);
         $data['hash_sum'] = md5($disk->get($filePath));
         $data['type'] = $disk->mimeType($filePath);
-        $data['play_time'] = $fileInfo['playtime_seconds'];
+        $data['meta_data'] = $fileInfo;
 
         return $data;
     }
