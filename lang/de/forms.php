@@ -18,6 +18,7 @@ return [
             Videos::STATUS_WAITING => 'Wartend',
             Videos::STATUS_IN_PROGRESS => 'In Bearbeitung',
             Videos::STATUS_FINISHED => 'Abgeschlossen',
+            Videos::STATUS_DUPLICATED => 'Dopplung',
         ],
     ],
 ];

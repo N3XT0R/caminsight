@@ -15,6 +15,8 @@ class Videos extends Model
 
     public const STATUS_FINISHED = 'FINISHED';
 
+    public const STATUS_DUPLICATED = 'DUPLICATED';
+
     protected $fillable = [
         'user_id',
         'file_name',
@@ -30,6 +32,7 @@ class Videos extends Model
     protected $casts = [
         'meta_data' => 'array',
     ];
+    
 
     public function user(): BelongsTo
     {

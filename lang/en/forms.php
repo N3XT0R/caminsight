@@ -18,6 +18,7 @@ return [
             Videos::STATUS_WAITING => 'Waiting',
             Videos::STATUS_IN_PROGRESS => 'In Progress',
             Videos::STATUS_FINISHED => 'Finished',
+            Videos::STATUS_DUPLICATED => 'Duplicated',
         ],
     ],
 ];
