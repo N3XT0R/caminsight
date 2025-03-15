@@ -5,6 +5,7 @@ use App\Models\Videos;
 return [
     'video' => [
         'video_file' => 'Video-Datei',
+        'duration' => 'Dauer',
         'comment' => 'Kommentar',
         'messages' => [
             'uploaded' => [
