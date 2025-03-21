@@ -19,8 +19,8 @@ class CreateVideos extends CreateRecord
     {
         return Notification::make()
             ->success()
-            ->title(__('forms.video.video_file.messages.uploaded.title'))
-            ->body(__('forms.video.video_file.messages.uploaded.body'));
+            ->title(__('forms.video.messages.uploaded.title'))
+            ->body(__('forms.video.messages.uploaded.body'));
     }
 
     public function form(Form $form): Form

@@ -5,6 +5,7 @@ use App\Models\Videos;
 return [
     'video' => [
         'video_file' => 'Video-File',
+        'duration' => 'Duration',
         'comment' => 'Comment',
         'messages' => [
             'uploaded' => [
@@ -17,6 +18,7 @@ return [
             Videos::STATUS_WAITING => 'Waiting',
             Videos::STATUS_IN_PROGRESS => 'In Progress',
             Videos::STATUS_FINISHED => 'Finished',
+            Videos::STATUS_DUPLICATED => 'Duplicated',
         ],
     ],
 ];
