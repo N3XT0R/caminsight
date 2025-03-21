@@ -22,6 +22,8 @@ abstract class AbstractVideoBatchCommand extends Command
         $exitCode = self::SUCCESS;
 
         foreach ($videos as $video) {
+            $video->setAttribute('status', Videos::STATUS_IN_PROGRESS);
+            $video->save();
             $batch = new VideoBatch();
             $batch->setAttribute('video_id', $video->getKey());
             $batch->setAttribute('is_running', true);

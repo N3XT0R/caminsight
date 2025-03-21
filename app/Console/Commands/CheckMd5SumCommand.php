@@ -34,6 +34,8 @@ class CheckMd5SumCommand extends AbstractVideoBatchCommand
                 ->count() > 1;
 
         $video->setAttribute('is_duplicated', $isDuplicated);
+        if (true === $isDuplicated) {
+        }
         return $video->save() ? self::SUCCESS : self::FAILURE;
     }
 }
