@@ -27,12 +27,13 @@ class Videos extends Model
         'hash_sum',
         'comment',
         'meta_data',
+        'is_duplicated',
     ];
 
     protected $casts = [
         'meta_data' => 'array',
     ];
-    
+
 
     public function user(): BelongsTo
     {

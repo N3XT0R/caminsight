@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('hash_sum')->nullable();
             $table->json('meta_data')->nullable();
             $table->text('comment')->nullable();
+            $table->boolean('is_duplicated')->default(false);
             $table->timestamps();
         });
     }

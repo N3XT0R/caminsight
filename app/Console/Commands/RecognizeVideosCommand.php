@@ -5,9 +5,8 @@ namespace App\Console\Commands;
 use App\Filament\Resources\VideosResource;
 use App\Models\Videos;
 use App\Services\Google\VideoIntelligence\Contracts\ClientContract;
-use Illuminate\Console\Command;
 
-class RecognizeVideosCommand extends Command
+class RecognizeVideosCommand extends AbstractVideoBatchCommand
 {
     /**
      * The name and signature of the console command.
@@ -21,12 +20,13 @@ class RecognizeVideosCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'recognizes every not recognized video';
+
 
     /**
      * Execute the console command.
      */
-    public function handle(ClientContract $client): int
+    public function handleVideo(Videos $video): int
     {
         $videos = VideosResource::getEloquentQuery()
             ->where('status', Videos::STATUS_WAITING)
